@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Employees</title>
+    <style>
+        .i{
+            margin-left: 30px;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<br>
+<h2 class="i">Add employee</h2>
+<br>
+<div class="i">
+    <form th:action="@{/employee/add}" th:object="${employee}" method="post">
+        <div>
+            <label> Surname:&nbsp;</label>
+            <input type="text" th:field="*{surname}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="error">Surname error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Name:&nbsp;</label>
+            <input type="text" th:field="*{name}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">Name error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Middle Name:&nbsp;</label>
+            <input type="text" th:field="*{middleName}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}" class="error">MiddleName error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Post:&nbsp;</label>
+            <input type="text" th:field="*{post}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('post')}" th:errors="*{post}" class="error">Post error</div>
+            <br><br>
+        </div>
+        <div>
+            <br>
+            <button> Add employee </button>
+        </div>
+    </form>
+</div>
+<br>
+<div class="i">
+    <form th:action="@{/employee}">
+        <button> Back </button>
+    </form>
+</div>
+</body>
+</html>

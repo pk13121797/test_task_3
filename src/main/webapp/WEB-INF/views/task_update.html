@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Tasks</title>
+    <style>
+        .i{
+            margin-left: 30px;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<br>
+<h2 class="i">Update task</h2>
+<br>
+<div class="i">
+    <form th:action="@{/task/update}" th:object="${task}" method="post">
+        <div>
+            <label> Id:&nbsp;</label>
+            <input type="text" th:field="*{id}" readonly/>
+            <br><br>
+        </div>
+        <div>
+            <label> Title:&nbsp;</label>
+            <input type="text" th:field="*{title}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error">Title error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Project:</label>
+            <select id="projectId" name="projectId" required>
+                <option th:each="p : ${projects}"
+                        th:value="${p.id}"
+                        th:text="${p.title}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label> Hours:&nbsp;</label>
+            <input type="number" step="1" min="1" max="1000" th:field="*{hours}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('hours')}" th:errors="*{hours}" class="error">Hours error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Start date:&nbsp;</label>
+            <input type="date" th:field="*{startDate}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="error">Start date error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> End date:&nbsp;</label>
+            <input type="date" th:field="*{endDate}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="error">EndDate error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Status:&nbsp;</label>
+            <select id="status" name="status" required>
+                <th:block th:each="s : ${statuses}">
+                    <option th:text="${s.name()}" th:value="${s.name()}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div>
+            <label> Employees:</label>
+            <select id="employee" name="employee" multiple="multiple" required>
+                <option th:each="e : ${employees}"
+                        th:value="${e.id}"
+                        th:text="${e.name} + ' ' + ${e.surname}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <br>
+            <button> Update task </button>
+        </div>
+    </form>
+</div>
+<br>
+<div class="i">
+    <form th:action="@{/task}">
+        <button> Back </button>
+    </form>
+</div>
+</body>
+</html>

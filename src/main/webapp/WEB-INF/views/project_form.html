@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Projects</title>
+    <style>
+        .i{
+            margin-left: 30px;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<br>
+<h2 class="i">Add project</h2>
+<br>
+<div class="i">
+    <form th:action="@{/project/add}" th:object="${project}" method="post">
+        <div>
+            <label> Title:&nbsp;</label>
+            <input type="text" th:field="*{title}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error">Title error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Abbreviation:&nbsp;</label>
+            <input type="text" th:field="*{abbreviation}" required/>
+            <div style="color: red" th:if="${#fields.hasErrors('abbreviation')}" th:errors="*{abbreviation}" class="error">Abbreviation error</div>
+            <br><br>
+        </div>
+        <div>
+            <label> Description:&nbsp;</label>
+            <textarea name="description" rows="3" cols="30" th:field="*{description}" required>Description</textarea>
+            <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="error">Description error</div>
+            <br><br>
+        </div>
+        <th:block th:if="${!tasks.isEmpty()}">
+            <div>
+                <label> Choose 0, 1 or many tasks:</label>
+                <select id="task" name="task" multiple="multiple">
+                    <option th:each="t : ${tasks}"
+                            th:value="${t.id}"
+                            th:text="${t.title}">
+                    </option>
+                </select>
+            </div>
+        </th:block>
+        <div>
+            <br><button> Add project</button>
+        </div>
+    </form>
+</div>
+<br><br>
+<div class="i">
+    <form th:action="@{/task/new}">
+        <button> Add new task </button>
+    </form>
+</div>
+<br>
+<div class="i">
+    <form th:action="@{/project}">
+        <button> Back </button>
+    </form>
+</div>
+<br>
+</body>
+</html>
