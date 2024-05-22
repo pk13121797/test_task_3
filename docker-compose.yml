@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  web-app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - web-app-db
+    volumes:
+      - uploads:/uploads
+      - logs:/app_logs/app.log
+  web-app-db:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=test_task
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
+  uploads:
+  logs:
