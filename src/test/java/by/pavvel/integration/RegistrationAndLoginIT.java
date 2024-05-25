@@ -1,6 +1,5 @@
 package by.pavvel.integration;
 
-import by.pavvel.config.AbstractTestcontainers;
 import by.pavvel.config.TestConfig;
 import by.pavvel.config.WebConfig;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 })
 @WebAppConfiguration
 @Sql(value = {"/users.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-public class RegistrationAndLoginIT extends AbstractTestcontainers {
+public class RegistrationAndLoginIT {
 
     @Autowired
     private WebApplicationContext context;

@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 })
 @WebAppConfiguration
 @Sql(value = {"/users.sql", "/projects.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-public class ProjectControllerIT extends AbstractTestcontainers {
+public class ProjectControllerIT {
 
     @Autowired
     private WebApplicationContext context;
