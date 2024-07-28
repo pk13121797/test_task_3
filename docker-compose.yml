@@ -7,7 +7,6 @@ services:
     depends_on:
       - web-app-db
     volumes:
-      - uploads:/uploads
       - logs:/app_logs/app.log
   web-app-db:
     image: postgres:latest
@@ -21,5 +20,4 @@ services:
       - db-data:/var/lib/postgresql/data
 volumes:
   db-data:
-  uploads:
   logs:
