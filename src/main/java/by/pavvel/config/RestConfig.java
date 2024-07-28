@@ -2,14 +2,13 @@ package by.pavvel.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.time.Clock;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class ClockConfig {
+public class RestConfig {
 
     @Bean
-    public Clock clock() {
-        return Clock.systemDefaultZone();
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 }

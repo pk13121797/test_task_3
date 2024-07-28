@@ -1,0 +1,42 @@
+###
+POST http://localhost:8080/localities
+Content-Type: application/json
+
+{
+  "title" : "Brest",
+  "population" : "345000",
+  "metroAvailability" : "false"
+}
+
+### to test validation
+###
+POST http://localhost:8080/localities
+Content-Type: application/json
+
+{
+  "title" : " ",
+  "population" : "-1",
+  "metroAvailability" : "true"
+}
+
+### to test validation with i18n (need to add ?lang=ru or ?lang=en as a request param)
+###
+POST http://localhost:8080/localities?lang=ru
+Content-Type: application/json
+
+{
+  "title" : " ",
+  "population" : "2",
+  "metroAvailability" : "false"
+}
+
+###
+PUT http://localhost:8080/localities/2
+Content-Type: application/json
+
+{
+  "population" : "345000",
+  "metroAvailability" : "false"
+}
+
+###

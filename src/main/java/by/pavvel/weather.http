@@ -1,0 +1,4 @@
+###
+GET https://api.weatherapi.com/v1/current.json?key=c8d70ac73e2f4639b04132653231203&aqi=no&q=66.766237,33.632615
+
+###

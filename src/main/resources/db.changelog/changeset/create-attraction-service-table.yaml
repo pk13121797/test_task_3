@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-attraction-service-1
+      author: pavel
+      changes:
+        - createTable:
+            tableName: attraction_service
+            columns:
+              - column:
+                  name: attraction_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    foreignKeyName: attraction_fk
+                    referencedTableName: attraction
+                    referencedColumnNames: id
+              - column:
+                  name: service_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    foreignKeyName: service_fk
+                    referencedTableName: service
+                    referencedColumnNames: id
+  - changeSet:
+      id: create-attraction-service-2
+      author: pavel
+      changes:
+        - createSequence:
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 5
+            sequenceName: attraction_service_id_seq
+            startValue: 5

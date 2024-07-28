@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-data-service
+      author: pavel
+      changes:
+        - insert:
+            tableName: service
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: title
+                  value: "buy souvenirs"
+              - column:
+                  name: abbreviation
+                  value: "AA"
+        - insert:
+            tableName: service
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: title
+                  value: "take a picture of a bison"
+              - column:
+                  name: abbreviation
+                  value: "AB"
+        - insert:
+            tableName: service
+            columns:
+              - column:
+                  name: id
+                  value: "3"
+              - column:
+                  name: title
+                  value: "a walk through the parks"
+              - column:
+                  name: abbreviation
+                  value: "ABC"
+        - insert:
+            tableName: service
+            columns:
+              - column:
+                  name: id
+                  value: "4"
+              - column:
+                  name: title
+                  value: "listen to the audio guide"
+              - column:
+                  name: abbreviation
+                  value: "DE"

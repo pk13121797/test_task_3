@@ -1,0 +1,89 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-data-attraction
+      author: pavel
+      changes:
+        - insert:
+            tableName: attraction
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: attraction_type
+                  value: "NATURE_RESERVE"
+              - column:
+                  name: creation_date
+                  value: "1991-12-25"
+              - column:
+                  name: description
+                  value: "some description"
+              - column:
+                  name: title
+                  value: "Aviaries with bisons"
+              - column:
+                  name: locality_id
+                  value: "1"
+        - insert:
+            tableName: attraction
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: attraction_type
+                  value: "MUSEUM"
+              - column:
+                  name: creation_date
+                  value: "2003-12-16"
+              - column:
+                  name: description
+                  value: "some description"
+              - column:
+                  name: title
+                  value: "The estate of the Belarusian Santa Claus"
+              - column:
+                  name: locality_id
+                  value: "1"
+        - insert:
+            tableName: attraction
+            columns:
+              - column:
+                  name: id
+                  value: "3"
+              - column:
+                  name: attraction_type
+                  value: "PALACE"
+              - column:
+                  name: creation_date
+                  value: "1583-05-07"
+              - column:
+                  name: description
+                  value: "some description"
+              - column:
+                  name: title
+                  value: "Nesvizh Castle"
+              - column:
+                  name: locality_id
+                  value: "2"
+        - insert:
+            tableName: attraction
+            columns:
+              - column:
+                  name: id
+                  value: "4"
+              - column:
+                  name: attraction_type
+                  value: "MUSEUM"
+              - column:
+                  name: creation_date
+                  value: "1957-01-01"
+              - column:
+                  name: description
+                  value: "some description"
+              - column:
+                  name: title
+                  value: "National Historical Museum"
+              - column:
+                  name: locality_id
+                  value: "3"

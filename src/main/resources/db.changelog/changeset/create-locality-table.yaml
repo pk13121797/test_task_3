@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-locality-1
+      author: pavel
+      changes:
+        - createTable:
+            tableName: locality
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: population
+                  type: double
+                  constraints:
+                    nullable: false
+              - column:
+                  name: metro_availability
+                  type: boolean
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create-locality-2
+      author: pavel
+      changes:
+        - createSequence:
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 4
+            sequenceName: locality_id_seq
+            startValue: 4

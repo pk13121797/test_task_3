@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-data-locality
+      author: pavel
+      changes:
+        - insert:
+            tableName: locality
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: metro_availability
+                  value: "false"
+              - column:
+                  name: population
+                  value: "0"
+              - column:
+                  name: title
+                  value: "Belovezhskaya Pushcha"
+        - insert:
+            tableName: locality
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: metro_availability
+                  value: "false"
+              - column:
+                  name: population
+                  value: "16000"
+              - column:
+                  name: title
+                  value: "Nesvizh"
+        - insert:
+            tableName: locality
+            columns:
+              - column:
+                  name: id
+                  value: "3"
+              - column:
+                  name: metro_availability
+                  value: "true"
+              - column:
+                  name: population
+                  value: "2000000"
+              - column:
+                  name: title
+                  value: "Minsk"

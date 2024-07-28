@@ -1,0 +1,27 @@
+###
+GET http://localhost:8080/attractions?sortDirection=desc&type=museum
+
+###
+GET http://localhost:8080/attractions/locality/minsk
+
+###
+POST http://localhost:8080/attractions?locality=3&services=1,3
+Content-Type: application/json
+
+{
+  "title" : "Minsk Planetarium",
+  "creationDate" : "1965-07-29",
+  "description" : "description",
+  "attractionType" : "NATURE_RESERVE"
+}
+
+###
+PUT http://localhost:8080/attractions/3?abbreviation=abc
+
+###
+DELETE http://localhost:8080/attractions/1
+
+### external rest weather service integration(recommendations based on temperature and humidity)
+GET http://localhost:8080/attractions/recommendation?latitude=66.766237&longitude=33.632615
+
+###

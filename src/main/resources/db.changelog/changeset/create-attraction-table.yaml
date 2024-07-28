@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-attraction-1
+      author: pavel
+      changes:
+        - createTable:
+            tableName: attraction
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: attraction_type
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: creation_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: locality_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: locality_fk
+                    referencedTableName: locality
+                    referencedColumnNames: id
+  - changeSet:
+      id: create-attraction-2
+      author: pavel
+      changes:
+        - createSequence:
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 5
+            sequenceName: attraction_id_seq
+            startValue: 5

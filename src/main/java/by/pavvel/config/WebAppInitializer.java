@@ -40,9 +40,4 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
                 "hiddenHttpMethodFilter", new HiddenHttpMethodFilter()
         ).addMappingForUrlPatterns(null,true,"/*");
     }
-
-    @Override
-    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement("/tmp"));
-    }
  }

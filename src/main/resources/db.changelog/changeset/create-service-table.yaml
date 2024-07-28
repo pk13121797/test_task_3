@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-service-1
+      author: pavel
+      changes:
+        - createTable:
+            tableName: service
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: abbreviation
+                  type: varchar(5)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create-service-2
+      author: pavel
+      changes:
+        - createSequence:
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 5
+            sequenceName: service_id_seq
+            startValue: 5
